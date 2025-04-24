@@ -1,0 +1,84 @@
+.content {
+    margin: 35px 0px 0px 0px;
+    width: calc(100% - 98px);
+    left: 88px;
+    position: absolute !important;
+    padding-top: 11px;
+  }
+
+  ::ng-deep .mat-mdc-table .mdc-data-table__header-row {
+    height: 50px;
+    background: #3f51b5;
+    color: #fff;
+  }
+
+  ::ng-deep .mdc-data-table__header-cell {
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    outline: none;
+    text-align: left;
+    color: #fff;
+  }
+
+  .buttonrow{
+    padding: 10px;
+  text-align: end;
+  }
+
+  .deletecss{
+    color: #de4150;
+    cursor: pointer;
+  }
+
+  .even1{
+    background: #fff;
+  }
+
+  .odd1{
+    background: #f3f3f3;
+  }
+
+  .keydiv{
+    align-items: center;
+  display: flex;
+  }
+
+  .newclass011{
+    border: 3px solid #002d73;
+    background: #f8f9fa;
+  }
+  
+  .matcss{
+    min-height: 75px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: rgba(81, 78, 78, 0.8705882353);
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+  }
+
+  
+  #orangeunderline{
+    font-size: 16px;
+    text-decoration: underline 2px;     
+    text-decoration-color: #002d73;  
+    text-decoration-style: solid;
+    text-underline-position: under;
+    
+    display: table-header-group;
+  }
+
+
+  .titlekey{
+    font-size: 14px;
+  color: #002d73;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.colorfordeta{
+    color: gray;
+}

@@ -1,0 +1,103 @@
+<app-spinner></app-spinner>
+<app-header></app-header>
+
+
+<div class="content">
+  
+        <div class="row rowbordercsss">
+          
+                <swiper #swiperVirtualRef [slidesPerView]="4" [spaceBetween]="20"  [navigation]="true" >
+                <!-- <div swiperSlide class="col-xs-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let data of cardlist">
+                <mat-card  class="matcss btn" matTooltip="click to view details" >
+                    {{data.name}}
+                </mat-card>
+            </div>    -->
+                <ng-template swiperSlide  *ngFor="let data of cardlist; let i = index">
+                    <mat-card (click)="changes(i)" [ngClass]="{'newclass011': newclass01 ==i}" class="matcss btn" style="margin: 1px 1px 1px 1px;border-radius: 10px;"  matTooltip="click to view details" >
+                    {{data.name}}
+                </mat-card>
+            </ng-template>
+                <!-- <ng-template swiperSlide>Slide</ng-template> -->
+            </swiper>
+       
+          
+        </div>
+
+        <div class="row " style="margin-top: 10px;">
+
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" >
+                <mat-card class="details" >
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding-bottom: 20px;">
+                    <p id="orangeunderline">Details</p>
+                </div>
+            
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngFor="let data of cardlistdetails.details">
+            
+                    <div class="row">
+                        <p class="titlekey">{{data.title}}</p>
+                    </div>
+            
+                    <div class="row">
+                        <p class="colorfordeta">{{data.details}}</p>
+                    </div>
+            
+                </div>
+            </div>
+                </mat-card>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" >
+                <mat-card class="details" >
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding-bottom: 20px;">
+                            <p id="orangeunderline">Sample Request</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngFor="let data of cardlistdetails.samplereponse">
+            
+                
+                            <div class="row">
+                                <p class="titlekey">{{data.title}}</p>
+                            </div>
+                    
+                            <div class="row">
+                                <p class="colorfordeta">{{data.details}}</p>
+                            </div>
+                
+                    
+                        </div>
+                    </div>
+               
+                </mat-card>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"  >
+                <mat-card class="details" >
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding-bottom: 20px;">
+                            <p id="orangeunderline">Sample Response</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            
+                            <div class="row">
+                                <pre>{{ this.cardlistdetails.livereponse | json }}</pre>
+                            </div>
+                
+                    
+                        </div>
+                    </div>
+               
+                </mat-card>
+            </div>  
+          
+        </div>
+
+        <!-- <swiper #swiperVirtualRef [slidesPerView]="3" [spaceBetween]="50" [pagination]="{ type: 'fraction' }"
+        [virtual]="true" slideActiveClass="swiper-active whyWouldIuseCustomClass" [centeredSlides]="true"
+        [navigation]="true" class="mySwiper" id="mySwiperID">
+        <ng-template swiperSlide *ngFor="let slide of cardlist; index as i">Slide {{ slide.name}}</ng-template>
+        <ng-template swiperSlide>Slide</ng-template>
+        <ng-template swiperSlide>Slide</ng-template>
+    </swiper> -->
+   
+</div>

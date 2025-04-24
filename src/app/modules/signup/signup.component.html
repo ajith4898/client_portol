@@ -1,0 +1,102 @@
+<app-spinner></app-spinner>
+<main class="container p-3" id="main_admin_form">
+
+    <div class="row">
+
+  
+      <section class="col-5" id="frag_login_form">
+        <form class="card"   name="loginForm" [formGroup]="singin">
+          <div class="card-body">
+            <h1 class="card-title" style="font-family: 'Titillium'; font-size: 26px;"> Sign Up!</h1>
+            <p class="text-muted mb-4 small">View all your service on one screen</p>
+            <div class="emailInput ">
+              <!-- <mat-form-field class="full-width ">
+       
+                <input placeholder="Email" formControlName="username" matInput required />
+                <mat-error *ngIf="!singin.controls['username'].valid" style="padding-top:0px; margin-left:0px">
+                  Email is required
+                </mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter the Email Id">
+                <mat-error *ngIf="!singin.controls['email'].valid" style="padding-top:0px; margin-left:0px">
+                    Email is required
+                  </mat-error>
+              </mat-form-field>
+  
+            </div>
+            <div style="margin-top:4px;" >
+         
+              <!-- <mat-form-field class="full-width ">
+   
+                <input matInput  placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
+                  <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon style="font-size: 20px;margin-top: -8px;margin-left: -33px;cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </span>
+  
+                <mat-error *ngIf="!singin.controls['password'].valid" style="padding-top:0px; margin-left:0px">
+                  Password is required
+                </mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter the Fullname">
+                <mat-error *ngIf="!singin.controls['name'].valid" style="padding-top:0px; margin-left:0px">
+                    Name is required
+                  </mat-error>
+              </mat-form-field>
+            
+            </div>
+  
+
+            <div style="margin-top:4px;" >
+  
+              <!-- <mat-form-field class="full-width ">
+   
+                <input matInput  placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
+                  <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon style="font-size: 20px;margin-top: -8px;margin-left: -33px;cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </span>
+  
+                <mat-error *ngIf="!singin.controls['password'].valid" style="padding-top:0px; margin-left:0px">
+                  Password is required
+                </mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Company Name</mat-label>
+                <input matInput formControlName="company_name" placeholder="Enter the Company Name">
+                <mat-error *ngIf="!singin.controls['company_name'].valid" style="padding-top:0px; margin-left:0px">
+                  Company Name is required
+                  </mat-error>
+              </mat-form-field>
+            
+            </div>
+            <mat-error class="text-danger mb-1" style="padding-left: 10px;" *ngIf=error>
+              {{errordata}}
+            </mat-error>
+            <div>
+              <!-- <button  matTooltip="Login" type="submit" (click)="onLogin()" *ngIf="!disablelogin" style="background-color: #002D73;  margin-bottom: 10px;" class="btn rounded-pill form-control  text-light col-6">Login
+                <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+  
+                <!-- <button  matTooltip="Login"  *ngIf="disablelogin" style="background-color: #002D73;  margin-bottom: 10px;opacity: 0.5;" class="btn rounded-pill form-control  text-light col-6">Login
+                  <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+
+                  <button mat-fab extended class="btncss" (click)="onLogin()">
+                    <!-- <mat-icon>favorite</mat-icon> -->
+                    Sign Up
+                  </button>
+            </div>
+          </div>
+  
+        </form>
+  
+        <!--- FORGOT  PASSWORD FROM (click)="onLogin()"--->
+      </section>
+  
+  
+    </div>
+  </main>

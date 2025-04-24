@@ -1,0 +1,77 @@
+<header id="head">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header p-1">
+    <div style="box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+      background-color: #fff;
+      margin-left: -2px;
+      border-radius: 5px;
+      margin-right: -3px;
+      padding: 10px 3px;">
+      <div class="header_row">
+
+
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-7"></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align: end;
+        position: relative;
+        top: 8px;
+       
+       ">
+
+          <!-- <img class="limg" matTooltip="Logout" src="assets/icons/lang.png" > -->
+        </div>
+
+
+
+        <!-- <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 text-end" style="position: relative;top: 8px;width: 61px;
+      ">
+
+          <mat-select style="font-size: 13px;
+            color: #002D73;width: 128%;" (selectionChange)="switchLanguage($event.value)"
+            [(ngModel)]="selectedLanguage">
+            <mat-option value="en" style="width: 90%;">English</mat-option>
+            <mat-option value="fr" style="width: 90%;">தமிழ்</mat-option>
+            <mat-option value="ger" style="width: 90%;">German</mat-option>
+          </mat-select>
+
+
+        </div> -->
+
+
+
+
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="justify-content: end;
+        display: flex;
+        padding-bottom: 7px;">
+     
+        
+        
+              <!-- <span>	<mat-icon>person</mat-icon></span> -->
+              <label class="p-0 profilename"><mat-icon class="matprof">person</mat-icon> <span *ngIf="datakey && datakey.name!='' && datakey.name!=null" >{{datakey.name}} </span>
+                <span *ngIf=" datakey && datakey.name=='' || datakey && datakey.name==null" >Anonymous User </span></label>
+       
+            <!-- <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 m-0"
+              style="text-align: center; padding-right: 15px;">
+              <label class="p-0"
+                style="font-size: 12px;color: #002D73; cursor: pointer;">Admin</label>
+            </div> -->
+   
+
+
+
+
+
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 logouts"  style="text-align: center;">
+          <div class="samerow">
+            <div class="halert">
+              <mat-icon  matTooltip="Logout"  (click)="onLogout()">power_settings_new</mat-icon>
+              <!-- <img class="bimage" matTooltip="Logout" src="assets/icons/bell.png" (click)="notificationcom()"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,289 @@
+<app-spinner></app-spinner>
+<app-header></app-header>
+
+<div class="content ">
+    <div class="row">
+      <!-- <div class="col">
+     
+      </div> -->
+      <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="display: flex;">
+        <span style="padding: 0px 13px;">   <mat-icon (click)="backgrid()" matTooltip="Back" style="cursor: pointer;color: #002D73;">keyboard_backspace</mat-icon></span>
+        <p id="orangeunderline" *ngIf="this.ticketinfo">{{ticketinfo.subject}}</p>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="text-align: end;padding-right: 30px;">
+        <mat-icon (click)="getcall()" matTooltip="Refresh" style="cursor: pointer;color: #002D73;">refresh</mat-icon>
+      </div>
+
+    </div>
+ 
+    <div class="row cardview2">
+      
+   
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 scrollcontainer">
+            <div style="padding: 10px 10px;" *ngFor="let user of ticketData; index as i;">
+                <div class="row cmtrow bckcmtrply" *ngIf="this.Currentuserid==user.author_user_id">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div class="row">
+                            <span class="btn col-sm-2 col-xs-2 col-md-2 col-lg-2" style=" width:11%;text-align: end;padding-bottom: 0px;"
+                              *ngFor="let f of user.ticket_attachments; let i = index">
+                              <mat-card id="baseinfoimage" style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                                
+                                <span>
+                                  <img  src="{{f.attachment_key}}"  (click)="goToLinkforpi(f.attachment_key)">
+                                </span>
+              
+                              </mat-card>
+              
+              
+                              <mat-card id="baseinfoimage" *ngIf="f.extention1=='docx'"
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px ;">
+                                
+                         
+                                <a>
+                                  <img src="assets/images/gallery folder icon/DOC.png" (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+              
+                              <mat-card id="baseinfoimage"
+                                *ngIf="f.extention1=='csv' || f.extention1=='XLSX' || f.extention1=='xlsx' || f.extention1=='XLS' || f.extention1=='xls'"
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                      
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/xlsx.png"
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+                              <mat-card id="baseinfoimage" *ngIf="f.extention1=='mp4' || f.extention=='MP4' "
+                                style="margin-bottom:5px;padding:14px;padding-top:4px ;">
+                                
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/MP4.png "
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+                              <mat-card id="baseinfoimage" *ngIf='f.extention1== "pdf" || f.extention1== "PDF" '
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                               
+                             
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/PDF.png "
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+              
+                                </a>
+                              </mat-card>
+                              <label class="imagename" style="color: #333;
+                              font-size:7px;
+                              justify-content: center;
+                              display: flex;">
+                                {{f.attachment_name}}</label>
+                            </span>
+                            <!-- <div class="col-sm-12 col-xs-12 col-md-1 col-lg-1"></div> -->
+                          </div>
+                         </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: end;">
+                        <h3 style="margin: 0px;"><span class="date">{{user.CreatedAt}} </span> - <span class="status">{{user.status}}</span> </h3>
+                        <h4 style="margin: 0px;">{{user.comment}}</h4>
+                    </div>
+                </div>
+
+                <div class="row cmtrow bckcmtrply"  *ngIf="this.Currentuserid!=user.author_user_id" >
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <h3 style="margin: 0px;"><span class="date">{{user.CreatedAt}} </span> - <span class="status">{{user.status}}</span> </h3>
+                        <h4 style="margin: 0px;">@karthik@aeiota.com(receiver-sample)</h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div class="row" style="justify-content: end;">
+                            <span class="btn col-sm-2 col-xs-2 col-md-2 col-lg-2" style=" width:11%;text-align: end;padding-bottom: 0px;"
+                              *ngFor="let f of user.ticket_attachments; let i = index">
+                              <mat-card id="baseinfoimage" style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                                
+                                <span>
+                                  <img  src="{{f.attachment_key}}"  (click)="goToLinkforpi(f.attachment_key)">
+                                </span>
+              
+                              </mat-card>
+              
+              
+                              <mat-card id="baseinfoimage" *ngIf="f.extention1=='docx'"
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px ;">
+                                
+                         
+                                <a>
+                                  <img src="assets/images/gallery folder icon/DOC.png" (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+              
+                              <mat-card id="baseinfoimage"
+                                *ngIf="f.extention1=='csv' || f.extention1=='XLSX' || f.extention1=='xlsx' || f.extention1=='XLS' || f.extention1=='xls'"
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                      
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/xlsx.png"
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+                              <mat-card id="baseinfoimage" *ngIf="f.extention1=='mp4' || f.extention=='MP4' "
+                                style="margin-bottom:5px;padding:14px;padding-top:4px ;">
+                                
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/MP4.png "
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+                                </a>
+                              </mat-card>
+              
+                              <mat-card id="baseinfoimage" *ngIf='f.extention1== "pdf" || f.extention1== "PDF" '
+                                style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                               
+                             
+                                <a>
+                                  <img  src="assets/images/gallery folder icon/PDF.png "
+                                    (click)="goToLinkforpi(f.img)" width="100" height="100">
+              
+                                </a>
+                              </mat-card>
+                              <label class="imagename" style="color: #333;
+                              font-size:7px;
+                              justify-content: center;
+                              display: flex;">
+                                {{f.attachment_name}}</label>
+                            </span>
+                            <!-- <div class="col-sm-12 col-xs-12 col-md-1 col-lg-1"></div> -->
+                          </div> </div>
+                </div>
+
+    
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <mat-card>
+              <form class="row" [formGroup]="actionForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <mat-form-field appearance="outline" style="width:100%;">
+                        <mat-label>Type Your Comments here...</mat-label>
+                        <textarea matInput #phy maxlength="100" type="text" 
+                            placeholder="Enter The Comments" formControlName="comment"></textarea>
+                        <mat-hint style="font-size: 10px;" align="end"
+                            *ngIf="phy.value.length > 0">({{phy.value.length}} / 100)</mat-hint>
+                    </mat-form-field>
+                </div>
+    
+    
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <mat-form-field appearance="outline" style="width:100%;">
+                            <mat-label>Status</mat-label>
+                            <mat-select disableRipple placeholder="Select priority"  formControlName="status">
+                                <mat-option value="HIGH"> HIGH </mat-option>
+                                <mat-option value="LOW"> LOW </mat-option>
+                                <mat-option value="MEDIUM"> MEDIUM </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                      <div class="row">
+                        <span class="btn col-sm-2 col-xs-2 col-md-2 col-lg-2" style=" width:11%;text-align: end;padding-bottom: 0px;"
+                        *ngFor="let f of frtrfiles; let i = index">
+                          <mat-card id="baseinfoimage" style="padding: 4px;">
+                            <span class="row" style="position: absolute; left: 81%;;color: #dc3545;" (click)="removeforrfq(i)">
+                              <mat-icon matTooltip="delete" style="font-size: 15px;padding: 0px;" >cancel</mat-icon></span>
+                            <span>
+                              <img  src="{{f.img}}" style="width: 94%;" (click)="goToLinkforpi(f.img)">
+                            </span>
+          
+                          </mat-card>
+          
+          
+                          <mat-card id="baseinfoimage" *ngIf="f.extention1=='docx'"
+                            style=" margin-bottom:5px;padding:14px;padding-top:4px ;">
+                            
+                     
+                            <a>
+                              <img src="assets/images/gallery folder icon/DOC.png" (click)="goToLinkforpi(f.img)" width="100" height="100">
+                            </a>
+                          </mat-card>
+          
+          
+                          <mat-card id="baseinfoimage"
+                            *ngIf="f.extention1=='csv' || f.extention1=='XLSX' || f.extention1=='xlsx' || f.extention1=='XLS' || f.extention1=='xls'"
+                            style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                  
+                            <a>
+                              <img  src="assets/images/gallery folder icon/xlsx.png"
+                                (click)="goToLinkforpi(f.img)" width="100" height="100">
+                            </a>
+                          </mat-card>
+          
+                          <mat-card id="baseinfoimage" *ngIf="f.extention1=='mp4' || f.extention=='MP4' "
+                            style="margin-bottom:5px;padding:14px;padding-top:4px ;">
+                            
+                            <a>
+                              <img  src="assets/images/gallery folder icon/MP4.png "
+                                (click)="goToLinkforpi(f.img)" width="100" height="100">
+                            </a>
+                          </mat-card>
+          
+                          <mat-card id="baseinfoimage" *ngIf='f.extention1== "pdf" || f.extention1== "PDF" '
+                            style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                           
+                         
+                            <a>
+                              <img  src="assets/images/gallery folder icon/PDF.png "
+                                (click)="goToLinkforpi(f.img)" width="100" height="100">
+          
+                            </a>
+                          </mat-card>
+                          <label class="imagename" style="color: #333;
+                          font-size:7px;
+                          justify-content: center;
+                          display: flex;">
+                            {{f.attachment_name}}</label>
+                        </span>
+                        <!-- <div class="col-sm-12 col-xs-12 col-md-1 col-lg-1"></div> -->
+                      </div>
+                    </div>
+                    <!-- <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    
+            </div> -->
+    
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" id="savecancel"
+                        style="align-items: center;display: flex;justify-content: end;">
+                        <div class="bttntop" id="savecancelbtn">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                              <input #fileUpload001 type="file" multiple class="input_fileupload--hidden"
+              (change)="onFileSelected001($event)" accept="accept" class="show"  style="display:none;"/>
+                                <mat-icon  (click)="onClick($event)" style="color: #002D73;">attachment</mat-icon>
+                                <button matTooltip="Sumbit" id="btn_save" style="padding: 5px 33px;;margin-bottom: 8px;"
+                               (click)="saveticket()"     class="btn btn_save  md-5 me-md-2" type="Submit">Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- ID	16
+client_id	7
+ticket_type	""
+subject	"as"
+description	"sa"
+status	"IN_PROGRESS"
+priority	"LOW"
+assignee_id	0
+CreatedAt	"2024-02-15T17:22:28.046337115Z"
+UpdatedAt	"2024-02-15T17:22:28.046337115Z"
+resolved_at	"0001-01-01T00:00:00Z"
+ticket_comments	null -->

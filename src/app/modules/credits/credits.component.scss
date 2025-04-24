@@ -1,0 +1,117 @@
+.content {
+    margin: 35px 0px 0px 0px;
+    width: calc(100% - 98px);
+    left: 88px;
+    position: absolute !important;
+    padding-top: 11px;
+  }
+
+  .cardview2{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 30px 80px #00000011;
+    min-height: 80px;
+    border-radius: 5px;
+    max-height: 80px;
+    margin-bottom: 10px;
+    justify-content: center;
+  display: flex;
+  align-items: center;
+    }
+
+  .cardview{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 30px 80px #00000011;
+    min-height: 350px;
+    border-radius: 5px;
+    min-height: 350px;
+    }
+
+    .cardviewtable{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 30px 80px #00000011;
+        min-height: 205px;
+        border-radius: 5px;
+        max-height: 205px;
+        }
+
+    .cardview1{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 30px 80px #00000011;
+        height: 100%;
+        border-radius: 5px;
+        // max-height: 420px;
+        }
+
+        ::ng-deep .mat-mdc-table .mdc-data-table__header-row {
+            height: 50px;
+            background: #3f51b5;
+            color: #fff;
+          }
+        
+          ::ng-deep .mdc-data-table__header-cell {
+            box-sizing: border-box;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            outline: none;
+            text-align: left;
+            color: #fff;
+          }
+
+
+          .pclass{
+            padding: 0px;
+  margin: 0px;
+          }
+
+          .newclass011{
+            border: 3px solid #002d73;
+            color: #002d73;
+          }
+
+          .even1{
+            background: #fff;
+          }
+        
+          .odd1{
+            background: #f3f3f3;
+          }
+
+          .titlekey{
+            font-size: 14px;
+          color: #002d73;
+          font-weight: bold;
+          margin-bottom: 4px;
+        }
+        
+        .colorfordeta{
+            color: gray;
+        }
+
+        table, td, th {  
+            border: 1px solid #ddd;
+            text-align: left;
+          }
+          
+          table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          th, td {
+            padding: 15px;
+          }
+
+          .trclass{
+            height: 20.6vh;
+          }
+
+          .rowpadding{
+            padding: 5px 2px;
+          }
+
+.thclss{
+    color: #fff;
+    background: #3c4eaf;
+    border: 1px solid #fff;
+
+}

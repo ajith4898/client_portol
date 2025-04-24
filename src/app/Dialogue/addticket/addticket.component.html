@@ -1,0 +1,153 @@
+<div *ngIf="loader" id="cover-spin" class="mloader">
+</div>
+
+<div class="row" style="width:100%;padding: 10px;">
+  <div class="col-xs-3 col-sm-3 col-md-11 col-lg-11" style="padding-left: 21px;">
+    <p id="orangeunderline" class="pl-2">Add Tickets</p>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 popupclose text text-danger"><span (click)="onNoClick()"><i
+        class="far fa-times-circle"></i></span>
+  </div>
+</div>
+<div class="container" style="margin-top: 15px;">
+
+    <form class="row" [formGroup]="actionForm">
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-form-field appearance="outline" style="width:100%;">
+          <mat-label>Subject</mat-label>
+          <input matInput #ls placeholder="Enter The  Subject" maxlength="50" formControlName="subject">
+          <mat-hint align="end" *ngIf="ls.value.length > 0">{{ls.value.length}}/50</mat-hint>
+          <mat-error *ngIf="phasError('subject', 'required')">Subject is Required </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-form-field appearance="outline" style="width:100%;">
+          <mat-label>Description</mat-label>
+          <textarea  matInput #phy maxlength="100" type="text" placeholder="Enter The Description" formControlName="description"></textarea>
+          <mat-hint style="font-size: 10px;" align="end" *ngIf="phy.value.length > 0">({{phy.value.length}} / 100)</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
+        <mat-form-field appearance="outline" style="width:100%;">
+          <mat-label>Priority</mat-label>
+          <mat-select disableRipple formControlName="priority" placeholder="Select priority">
+            <mat-option value="HIGH"> HIGH </mat-option>
+            <mat-option value="LOW"> LOW </mat-option>
+            <mat-option value="MEDIUM"> MEDIUM </mat-option>
+          </mat-select>
+          <mat-error *ngIf="phasError('priority', 'required')"> Priority is required</mat-error>
+        </mat-form-field>
+      </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <input #fileUpload001 type="file" multiple class="input_fileupload--hidden"
+              (change)="onFileSelected001($event)" accept="accept" class="show"  style="display:none;"/>
+
+            <div class="labelrow" (click)="onClick($event)">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="display: flex; align-items: center;">
+                  <label style="font-size: 15px;margin-right: 18px;"> Choose File</label>
+                  <mat-icon style="color: #002D73;">attachment</mat-icon>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                 
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="row">
+              <span class="btn col-sm-2 col-xs-2 col-md-2 col-lg-2 mx-3" style=" width:16%;text-align: end;"
+                *ngFor="let f of frtrfiles; let i = index">
+                <mat-card id="baseinfoimage"
+                  *ngIf="f.extention=='JPG' || f.extention=='jpg'  || f.extention=='image' || f.extention=='png' || f.extention=='PNG'  || f.extention=='jpeg' || f.extention=='JPEG' "
+                  style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                  <span class="row" style="justify-content: end;padding-right: 0px;;color: #dc3545;" (click)="removeforrfq(i)">
+                    <mat-icon matTooltip="delete" style="font-size: 19px; padding: 0px;" >cancel</mat-icon></span>
+                  <span>
+                    <img  src="{{f.img}}" width="100" height="100"  (click)="goToLinkforpi(f.img)">
+                  </span>
+
+                </mat-card>
+
+
+                <mat-card id="baseinfoimage" *ngIf="f.extention1=='docx'"
+                  style=" margin-bottom:5px;padding:14px;padding-top:4px ;">
+                  <span class="row" style="justify-content: end;padding-right: 0px;;color: #dc3545;" (click)="removeforrfq(i)">
+                    <mat-icon matTooltip="delete" style="font-size: 19px; padding: 0px;" >cancel</mat-icon></span>
+           
+                  <a>
+                    <img src="assets/images/gallery folder icon/DOC.png" (click)="goToLinkforpi(f.img)" width="100" height="100">
+                  </a>
+                </mat-card>
+
+
+                <mat-card id="baseinfoimage"
+                  *ngIf="f.extention1=='csv' || f.extention1=='XLSX' || f.extention1=='xlsx' || f.extention1=='XLS' || f.extention1=='xls'"
+                  style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                  <span class="row" style="justify-content: end;padding-right: 0px;;color: #dc3545;" (click)="removeforrfq(i)">
+                    <mat-icon matTooltip="delete" style="font-size: 19px; padding: 0px;" >cancel</mat-icon></span>
+                  <a>
+                    <img  src="assets/images/gallery folder icon/xlsx.png"
+                      (click)="goToLinkforpi(f.img)" width="100" height="100">
+                  </a>
+                </mat-card>
+
+                <mat-card id="baseinfoimage" *ngIf="f.extention1=='mp4' || f.extention=='MP4' "
+                  style="margin-bottom:5px;padding:14px;padding-top:4px ;">
+                  <span class="row" style="justify-content: end;padding-right: 0px;;color: #dc3545;" (click)="removeforrfq(i)">
+                    <mat-icon matTooltip="delete" style="font-size: 19px; padding: 0px;" >cancel</mat-icon></span>
+        
+                  <a>
+                    <img  src="assets/images/gallery folder icon/MP4.png "
+                      (click)="goToLinkforpi(f.img)" width="100" height="100">
+                  </a>
+                </mat-card>
+
+                <mat-card id="baseinfoimage" *ngIf='f.extention1== "pdf" || f.extention1== "PDF" '
+                  style=" margin-bottom:5px;padding:14px;padding-top:4px;">
+                  <span class="row" style="justify-content: end;padding-right: 0px;;color: #dc3545;" (click)="removeforrfq(i)">
+                    <mat-icon matTooltip="delete" style="font-size: 19px; padding: 0px;" >cancel</mat-icon></span>
+               
+                  <a>
+                    <img  src="assets/images/gallery folder icon/PDF.png "
+                      (click)="goToLinkforpi(f.img)" width="100" height="100">
+
+                  </a>
+                </mat-card>
+                <label class="imagename" style="color: #333;
+                width: 124px;
+                font-size: 11px;
+                justify-content: center;
+                display: flex;">
+                  {{f.imgname}}</label>
+              </span>
+              <div class="col-sm-12 col-xs-12 col-md-1 col-lg-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+      <div class="row" style="padding: 15px 0px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="savecancel">
+            <div class="bttntop"  id="savecancelbtn">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button matTooltip="cancel" class="btn btn-outline-primary"
+                      style="padding: 5px 33px;;margin-bottom: 8px;"  type="button" (click)="cancelupdatepage()">Cancel</button>
+                  <button matTooltip="Sumbit" 
+                      id="btn_save" style="padding: 5px 33px;;margin-bottom: 8px;"  class="btn btn_save  md-5 me-md-2" 
+                     (click)="saveticket()"   type="Submit">Sumbit</button>
+              </div>
+          </div>
+        </div>
+        
+    </div>
+    </form>
+
+</div>

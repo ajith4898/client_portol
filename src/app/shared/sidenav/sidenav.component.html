@@ -1,0 +1,54 @@
+
+  <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+
+<div *ngIf="!collapsed" (click)="toggleCollapse()"><mat-icon>menu</mat-icon></div>
+        <!-- <img src="assets/logo/mclogo.png"  *ngIf="!collapsed" alt="5S11" width="50" (click)="toggleCollapse()"> -->
+
+
+        <div class="logo-text" @fadeInOut *ngIf="collapsed"><label>Credeau Gator</label></div>
+        <!-- <div class="logo-text" @fadeInOut *ngIf="collapsed"><img style=" width: 97%;"  src="assets/5s menu/logowithname1.png"></div> -->
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <!-- <mat-icon>close</mat-icon> -->
+
+        </button>
+    </div>
+    <ul class="sidenav-nav"> 
+      <ng-container *ngFor="let data of navData">
+          <ng-container >
+              <li class="sidenav-nav-item" >
+                  <ng-container  matTooltip="{{data.matTooltip}}">
+
+
+                      <a class="sidenav-nav-link"  [routerLink]="[data.routeLink]"
+                          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" 
+                          [ngClass]="{ 
+                            'active': (data.routeLink && isLinkActive(data.routeLink)) || 
+                                      (data.alternativeRouteLink && isLinkActive(data.alternativeRouteLink))
+                          }">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row" style="margin-left: 0px;" >
+                              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"  >
+                            
+                                  <mat-icon matTooltip="{{data.matTooltip}}" style="padding-top: 1px;" [ngClass]="[isLinkActive(data.routeLink) || isLinkActive(data.alternativeRouteLink) ? 'activeicon' : 'unactiveicon']" >{{data.icon}}</mat-icon>
+
+                              </div>
+                              <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 labeldiv">
+                                  <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                                      <ng-container   matTooltip="{{data.matTooltip}}">
+                                          {{data.label1}}
+                                      </ng-container>
+                                  </span>
+                              </div>
+                          </div>
+
+                      </a>
+                  </ng-container>
+
+              </li>
+          </ng-container>
+
+      </ng-container>
+
+  </ul>
+ 
+</div>

@@ -1,0 +1,109 @@
+
+//   spinner
+
+.mloader {
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    z-index:-1;
+  }
+  
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #cover-spin::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: #002D73;
+    border-top-color: transparent;
+    border-width: 4px;  
+    border-radius: 50%;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+  }
+
+  //
+
+  #orangeunderline {
+    max-width: 10px;
+    margin: 15px 10px 10px;
+    padding-top: 15px;
+    text-decoration: underline 2px;
+    text-decoration-color: #002D73;
+    text-decoration-style: solid;
+    text-underline-position: under;
+    display: table-header-group;
+}
+
+.popupclose {
+    text-align-last: end;
+    font-size: 20px;
+}
+
+#savecancelbtn{
+
+  .btn-outline-primary {
+    color: #002D73;
+    border-color: #002D73;
+    padding: 5px 43px;
+  }
+  
+  .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #002D73;
+    border-color: #002D73;
+  }
+  
+  .btn_save {
+    background-color: #002D73;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 45px;
+    color: #fff;
+    margin-left: 15px;
+  }
+  
+  .btn_dev{
+    text-align: end;
+  padding-right: 55px;
+  padding-top: 25px;
+
+  }
+
+  
+  .fieldname{
+    font-weight: bold;
+  }
+
+  .labelrow{
+    border-radius: 15px;
+    padding: 19px 16px 8px;
+    border: 1px solid #b4a9a9;
+  }
+  .show{
+    display:none;
+
+  }
+  
+}

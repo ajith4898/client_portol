@@ -1,0 +1,179 @@
+<app-spinner></app-spinner>
+<app-header></app-header>
+
+<div class="content">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="padding-right: 0px;">
+            <div class="row ">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding-right: 0px;">
+                    <div class="cardview2" matTooltip="click to view details" (click)="changes(1)" [ngClass]="{'newclass011': this.shown.show01 ==true}">
+                        <p style="margin: 0px;">User deduplication</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding-right: 0px;">
+                    <div class="cardview2" matTooltip="click to view details" (click)="changes(2)" [ngClass]="{'newclass011': this.shown.show02 ==true}">
+                        <p style="margin: 0px;">Name match API</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding-right: 0px;" >
+                    <div class="cardview2" matTooltip="click to view details" (click)="changes(3)" [ngClass]="{'newclass011': this.shown.show03 ==true}">
+                        <p style="margin: 0px;">Phone name match</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="cardview2" matTooltip="click to view details" (click)="changes(4)" [ngClass]="{'newclass011': this.shown.show04 ==true}">
+                        <p style="margin: 0px;">Address</p>
+                    </div>
+                </div>
+            
+            
+            </div>
+           
+            <div class="cardviewtable">
+                <table mat-table [dataSource]="dataSource">
+              
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="ClientID">
+                      <th mat-header-cell *matHeaderCellDef>S.No. </th>
+                      <td mat-cell *matCellDef="let element; let i = index ;let even = even; let odd = odd"  [ngClass]="{ even1: even, odd1: odd }">
+                         {{element.sno}} </td>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="key">
+                      <th mat-header-cell *matHeaderCellDef> Credits Used</th>
+                      <td mat-cell *matCellDef="let element; let even = even; let odd = odd"  [ngClass]="{ even1: even, odd1: odd }">
+        {{element.credituse}}
+
+                         </td>
+                    </ng-container>
+  
+                     <!-- Symbol Column -->
+                     <ng-container matColumnDef="expires_at">
+                      <th mat-header-cell *matHeaderCellDef> Transaction</th>
+                      <td mat-cell *matCellDef="let element; let even = even; let odd = odd"  [ngClass]="{ even1: even, odd1: odd }"> {{element.transction}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="is_active">
+                      <th mat-header-cell *matHeaderCellDef> Credit Balance </th>
+                      <td mat-cell *matCellDef="let element; let even = even; let odd = odd"  [ngClass]="{ even1: even, odd1: odd }">
+                    {{element.creditbalance}}
+                      </td>
+                    </ng-container>
+                
+                   
+                
+  
+            
+  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+  
+            </div>
+            <div class="cardview" style="margin-top: 10px;padding: 12px;" >
+<div *ngFor="let data of cardlistdetails.details">
+    <div class="row">
+        <p class="titlekey">{{data.title}}</p>
+    </div>
+
+    <div class="row">
+        <p class="colorfordeta">{{data.details}}</p>
+    </div>
+</div>
+            
+            </div>
+
+            
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="cardview1">
+                <table>
+                    <tr>
+                      <th class="thclss" style="border-radius: 5px 0px 0px 0px;">Services</th>
+                      <th class="thclss" >Invocations</th>
+                      <th class="thclss"  style="border-radius: 0px 5px 0px 0px;">Credits</th>
+                    </tr>
+                    <tr class="trclass">
+                      <td>User deduplication</td>
+                    <td >
+                        <div class="row rowpadding"> <label> < 10000</label></div>
+                        <div class="row rowpadding"> <label>1000 < 10000</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 10000 <</label></div>
+                    </td>
+
+
+                    <td>
+
+                        <div class="row rowpadding"> <label>11 Credits</label></div>
+                        <div class="row rowpadding"> <label>1100 Credits</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 12000 Credits</label></div>
+
+                    </td>
+                    </tr>
+                    <tr class="trclass">
+                      <td>Name match API</td>
+                      <td >
+                        <div class="row rowpadding"> <label> < 10000</label></div>
+                        <div class="row rowpadding"> <label>1000 < 10000</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 10000 <</label></div>
+                    </td>
+
+
+                    <td>
+
+                        <div class="row rowpadding"> <label>11 Credits</label></div>
+                        <div class="row rowpadding"> <label>1100 Credits</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 12000 Credits</label></div>
+
+                    </td>
+                    </tr>
+                    <tr class="trclass">
+                      <td>Phone name match</td>
+                      <td >
+                        <div class="row rowpadding"> <label> < 10000</label></div>
+                        <div class="row rowpadding"> <label>1000 < 10000</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 10000 <</label></div>
+                    </td>
+
+
+                    <td>
+
+                        <div class="row rowpadding"> <label>11 Credits</label></div>
+                        <div class="row rowpadding"> <label>1100 Credits</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 12000 Credits</label></div>
+
+                    </td>
+                    </tr>
+                    <tr class="trclass">
+                      <td>Address</td>
+                      <td >
+                        <div class="row rowpadding"> <label> < 10000</label></div>
+                        <div class="row rowpadding"> <label>1000 < 10000</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 10000 <</label></div>
+                    </td>
+
+
+                    <td>
+
+                        <div class="row rowpadding"> <label>11 Credits</label></div>
+                        <div class="row rowpadding"> <label>1100 Credits</label></div>
+                        <!-- <div class="row rowpadding"> <label> < 10000</label></div> -->
+                        <div class="row rowpadding"> <label> 12000 Credits</label></div>
+
+                    </td>
+                    </tr>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>

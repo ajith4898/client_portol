@@ -1,0 +1,145 @@
+<app-spinner></app-spinner>
+<main class="container p-3" id="main_admin_form">
+
+    <div class="row">
+
+  
+      <section class="col-5" id="frag_login_form" *ngIf="this.shown.emailform">
+        <form class="card"   name="loginForm" [formGroup]="emailverify">
+          <div class="card-body">
+            <h1 class="card-title" style="font-family: 'Titillium'; font-size: 26px;"> Hello!</h1>
+            <p class="text-muted mb-4 small">Enter Your Registerted Email ID to Get OTP...</p>
+            <div class="emailInput "  style="margin-top: 25px;">
+              <!-- <mat-form-field class="full-width ">
+       
+                <input placeholder="Email" formControlName="username" matInput required />
+                <mat-error *ngIf="!singin.controls['username'].valid" style="padding-top:0px; margin-left:0px">
+                  Email is required
+                </mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter the Email Id">
+                <mat-error *ngIf="!emailverify.controls['email'].valid" style="padding-top:0px; margin-left:0px">
+                    Email is required
+                  </mat-error>
+              </mat-form-field>
+  
+            </div>
+ 
+  
+            <mat-error class="text-danger mb-1" style="padding-left: 10px;" *ngIf=error>
+              {{errordata}}
+            </mat-error>
+            <div>
+
+              <!-- <button  matTooltip="Login" type="submit" (click)="onLogin()" *ngIf="!disablelogin" style="background-color: #002D73;  margin-bottom: 10px;" class="btn rounded-pill form-control  text-light col-6">Login
+                <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+  
+                <!-- <button  matTooltip="Login"   style="background-color: #002D73;  margin-bottom: 10px;opacity: 0.5;" class="btn rounded-pill form-control  text-light col-6">Login
+                  <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+
+                  <button mat-fab extended class="btncss" (click)="sendotp()">
+                <i class="fa fa-spinner fa-spin"></i>
+                    Send OTP
+                  </button>
+            </div>
+
+            <p style="margin-top: 30px;
+            text-align: center;" class="text-muted mb-4 small">Don't have an account.? <a href="javascript:void(0)" [routerLink]="['/signup']" >Sign Up</a></p>
+          </div>
+  
+        </form>
+  
+        <!--- FORGOT  PASSWORD FROM (click)="onLogin()"--->
+      </section>
+
+
+      <section class="col-5" id="frag_login_form" *ngIf="this.shown.otpform">
+        <form class="card"   name="loginForm" [formGroup]="singin">
+          <div class="card-body">
+            <h1 class="card-title" style="font-family: 'Titillium'; font-size: 26px;">Verify OTP!</h1>
+            <p class="text-muted small" style="margin-bottom: 1px;">You have Received OTP to your Registerted Email ID..</p>
+
+            <p class="text-muted mb-4 small">{{this.emailid}}</p>
+            <!-- <div class="emailInput "  style="margin-top: 25px;">
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="username" placeholder="Enter the Email Id">
+                <mat-error *ngIf="!singin.controls['username'].valid" style="padding-top:0px; margin-left:0px">
+                    Email is required
+                  </mat-error>
+              </mat-form-field>
+  
+            </div> -->
+            <div style="margin-top: 30px;" >
+  
+              <!-- <mat-form-field class="full-width ">
+   
+                <input matInput  placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
+                  <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon style="font-size: 20px;margin-top: -8px;margin-left: -33px;cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </span>
+  
+                <mat-error *ngIf="!singin.controls['password'].valid" style="padding-top:0px; margin-left:0px">
+                  Password is required
+                </mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>OTP</mat-label>
+                <input matInput formControlName="otp" placeholder="Enter the OTP">
+                <mat-error *ngIf="!singin.controls['otp'].valid" style="padding-top:0px; margin-left:0px">
+                    OTP is required
+                  </mat-error>
+              </mat-form-field>
+            
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+         
+                  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="display: flex;">
+                    <div [ngClass]="displayTimer ? 'reseclass1' : 'reseclass2' " (click)="resendotp()">Resend OTP
+                    </div>
+                    <p *ngIf="displayTimer" class="timercssp"> in {{ display }} </p>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+                </div>
+              </div>
+  
+            <mat-error class="text-danger mb-1" style="padding-left: 10px;" *ngIf=error>
+              {{errordata}}
+            </mat-error>
+            <div>
+
+              <!-- <button  matTooltip="Login" type="submit" (click)="onLogin()" *ngIf="!disablelogin" style="background-color: #002D73;  margin-bottom: 10px;" class="btn rounded-pill form-control  text-light col-6">Login
+                <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+  
+                <!-- <button  matTooltip="Login"   style="background-color: #002D73;  margin-bottom: 10px;opacity: 0.5;" class="btn rounded-pill form-control  text-light col-6">Login
+                  <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button> -->
+
+                  <div style="text-align: end;margin-top: 30px;">
+                    <button (click)="cancel()" type="submit" style="margin-bottom: 10px; margin-right:10px;padding: 7px 21px;"
+                      class="btn rounded-pill btn-outline-primary">Cancel
+                      <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button>
+        
+                    <button (click)="onLogin()" type="submit" style="background-color: #002D73; margin-bottom: 10px;padding: 7px 21px;"
+                      class="btn rounded-pill  float-right  text-light">Login
+                      <span *ngIf=loading><i class="fa fa-spinner fa-spin"></i></span></button>
+                  </div>
+            </div>
+
+           
+          </div>
+  
+        </form>
+  
+        <!--- FORGOT  PASSWORD FROM (click)="onLogin()"--->
+      </section>
+  
+  
+    </div>
+  </main>
